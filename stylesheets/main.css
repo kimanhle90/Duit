@@ -45,7 +45,6 @@ body {
 	font-family: Gentleman;
 }
 
-
 .app {
 	display: table;
 	overflow: scroll;
@@ -56,6 +55,8 @@ body {
 	margin-left: auto;
 	background: rgba(240,240,240,.5);
 }
+
+/*HEADER*/
 
 .header {
 	width: 100%;
@@ -83,3 +84,10 @@ body {
 	font-size: 24px;
 	text-align: center;
 }
+
+/*TASK LIST*/
+
+.task-list h1 {
+	color:#333333;
+}
+

@@ -20,14 +20,23 @@
 
 <body ng-app='duitApp'>
   <div class="app">
+    
+    <!-- Header -->
     <table class="header">
-        <td class="col-xs-3"><a ui-sref="home">Home</a></td>
+        <td class="col-xs-3">
+          <a ui-sref="home">Home</a>
+        </td>
         <td class="app-title col-xs-6"> Duit </td>
-        <td class="history col-xs-3"><a ui-sref="history">History</a></td>
+        <td class="history col-xs-3">
+          <a ui-sref="history">History</a>
+        </td>
     </table>
+
+    <!-- Start dynamic content -->
     <div class="task-list">  
       <div ui-view></div> 
-    </div>  
+    </div>
+
   </div>
 </body>
 

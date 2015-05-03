@@ -1,20 +1,23 @@
-var duitApp = angular.module("duitApp", ["ui.router"]);
+var duitApp = angular.module("duitApp", ["ui.router", "firebase"]);
 
 duitApp.config(function($stateProvider, $urlRouterProvider) {
+
+	console.log("Angular is wokring");
 
 	$urlRouterProvider.otherwise('/home');
 
 	$stateProvider
         
-        // HOME STATES AND NESTED VIEWS ========================================
+        // HOME VIEWS 
         .state('home', {
             url: '/',
             templateUrl: '../assets/templates/home.html'
         })
         
-        // ABOUT PAGE AND MULTIPLE NAMED VIEWS =================================
+        // HISTORY VIEWS 
         .state('history', {
-            // we'll get to this in a bit       
+            url: '/history',
+            templateUrl: '../assets/templates/history.html'       
         });
 
 });	
