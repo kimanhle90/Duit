@@ -1,5 +1,7 @@
 # Duit App
 
+Duit (Do it) is a simple to-do app.
+
 User story
 
 Duit 1.0

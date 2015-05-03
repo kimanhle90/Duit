@@ -15,16 +15,20 @@
   <script src="https://cdn.firebase.com/libs/angularfire/1.0.0/angularfire.min.js"></script>
   <!-- UI Router -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.13/angular-ui-router.min.js"></script>
-
-
   <script type="text/javascript" src="scripts/app.js"></script>
 </head>
 
-<body ng-controller="SampleCtrl">
-  <!-- anything typed in here is magically saved to Firebase! -->
-  <input type="text" ng-model="data.text" />
-  <!-- all changes from Firebase magically appear here! -->
-  <h1>You said: {{ data.text }}</h1>
+<body ng-app='duitApp'>
+  <div class="app">
+    <table class="header">
+        <td class="col-xs-3"><a ui-sref="home">Home</a></td>
+        <td class="app-title col-xs-6"> Duit </td>
+        <td class="history col-xs-3"><a ui-sref="history">History</a></td>
+    </table>
+    <div class="task-list">  
+      <div ui-view></div> 
+    </div>  
+  </div>
 </body>
 
 
