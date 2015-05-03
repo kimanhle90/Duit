@@ -1,4 +1,4 @@
-var app = angular.module("duitApp", ["firebase"]);
+var app = angular.module("duitApp", ["firebase", "ui.router"]);
 app.controller("DuitCtrl", function ($scope, $firebaseObject) {
   var ref = new Firebase("https://duit.firebaseio.com/data");
 
