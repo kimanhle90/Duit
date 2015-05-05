@@ -50,7 +50,7 @@ body {
 	overflow: scroll;
 	height: 650px;
 	width: 375px;
-	margin-top: 5%;
+	margin-top: 2%;
 	margin-right: auto;
 	margin-left: auto;
 	background: rgba(240,240,240,.5);
@@ -66,6 +66,7 @@ body {
 
 .header td {
 	text-align: center;
+	font-size: 14px;
 }
 
 .header a {
@@ -78,7 +79,7 @@ body {
 	color: rgba(255,255,255,1);
 }
 
-.app-title {
+.header td.app-title {
 	color: white;
 	font-weight: 800;
 	font-size: 24px;
