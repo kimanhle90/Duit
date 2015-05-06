@@ -7,13 +7,13 @@ var duitApp = angular.module("duitApp", ["ui.router", "firebase"]);
 // 	$urlRouterProvider.otherwise('/home');
 
 // 	$stateProvider
-        
+
 //         // HOME VIEWS 
 //         .state('home', {
 //             url: '/',
 //             templateUrl: '../assets/templates/home.html'
 //         })
-        
+
 //         // HISTORY VIEWS 
 //         .state('history', {
 //             url: '/history',
@@ -23,19 +23,25 @@ var duitApp = angular.module("duitApp", ["ui.router", "firebase"]);
 // });	
 
 duitApp.config(['$stateProvider', '$locationProvider', function($stateProvider, $locationProvider) {
-   $locationProvider.html5Mode({
-    enabled: true,
-    requireBase: false
-    });
+ $locationProvider.html5Mode({
+  enabled: true,
+  requireBase: false
+});
+
+ $stateProvider.state('home', {
+  url: '/',
+  controller: 'home.controller',
+  templateUrl: '../assets/templates/home.html'
+ });
  
-   $stateProvider.state('history', {
-     url: '/history',
-     controller: 'history.controller',
-     templateUrl: '../assets/templates/history.html'
-   });
- }]);
+ $stateProvider.state('history', {
+   url: '/history',
+   controller: 'history.controller',
+   templateUrl: '../assets/templates/history.html'
+ });
+}]);
 
 duitApp.controller('history.controller', ['$scope', function($scope) {
 
-    }]);
+}]);
 
