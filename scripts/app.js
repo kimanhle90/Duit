@@ -1,26 +1,9 @@
-var duitApp = angular.module("duitApp", ["ui.router", "firebase"]);
+(function(){
 
-// duitApp.config(function($stateProvider, $urlRouterProvider) {
+  // Start App Module
+var duitApp = angular.module("duitApp", ['ui.router', 'firebase']);
 
-// 	console.log("Angular is working");
-
-// 	$urlRouterProvider.otherwise('/home');
-
-// 	$stateProvider
-
-//         // HOME VIEWS 
-//         .state('home', {
-//             url: '/',
-//             templateUrl: '../assets/templates/home.html'
-//         })
-
-//         // HISTORY VIEWS 
-//         .state('history', {
-//             url: '/history',
-//             templateUrl: '../assets/templates/history.html'       
-//         });
-
-// });	
+// This part control App Views
 
 duitApp.config(['$stateProvider', '$locationProvider', function($stateProvider, $locationProvider) {
  $locationProvider.html5Mode({
@@ -31,17 +14,26 @@ duitApp.config(['$stateProvider', '$locationProvider', function($stateProvider, 
  $stateProvider.state('home', {
   url: '/',
   controller: 'home.controller',
-  templateUrl: '../assets/templates/home.html'
+  templateUrl: '/assets/templates/home.html'
  });
  
  $stateProvider.state('history', {
    url: '/history',
    controller: 'history.controller',
-   templateUrl: '../assets/templates/history.html'
+   templateUrl: '/assets/templates/history.html'
  });
 }]);
 
-duitApp.controller('history.controller', ['$scope', function($scope) {
+
+// This part triggers firebase data
+duitApp.controller("FirebaseCtrl", ["$scope", "$firebase", 
+  function ($scope, $firebase) {
+  var ref = new Firebase("https://duit.firebaseio.com/");
 
 }]);
+
+// End App Module
+
+})();
+
 

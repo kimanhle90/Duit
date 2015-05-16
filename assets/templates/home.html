@@ -1,3 +1,6 @@
-<div>
-    <h1>You don't have any task yet. Add new task using the [+] button at the bottom.</h1>  
+<div ng-controller='FirebaseCtrl'>
+<div class="no-task" ng-show=!FirebaseCtrl.meassages.length>
+	<p>You don't have any task yet.</p>
+</div>	
 </div>
+

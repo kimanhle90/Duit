@@ -92,3 +92,9 @@ body {
 	color:#333333;
 }
 
+.no-task {
+	font-family: 'Source Sans Pro';
+	padding: 15px;
+	font-size: 16px;
+}
+
