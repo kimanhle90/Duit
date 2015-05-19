@@ -1,6 +1,17 @@
 <div ng-controller='FirebaseCtrl'>
-<div class="no-task" ng-show=!FirebaseCtrl.meassages.length>
-	<p>You don't have any task yet.</p>
-</div>	
+    <!-- push a new task onto the array -->
+   
+    <div>
+      <div ng-repeat="task in tasks" class="active-task">
+        <table>
+        	<tr>
+        		<td class="task"> {{task.text}}</td>
+        		<td class="trash-button" ng-click="tasks.$remove(task)"><i class="fa fa-trash"></i></td>
+        	</tr>
+        </table>
+      </div>
+    </div>
 </div>
+
+
 
