@@ -163,13 +163,10 @@ body {
   background: #E84387;
 }
 
-.task {
-  float: left;
-}
+.task {}
 
 .trash-button {
-  position: absolute;
-  right: 15px;
+  padding-left: 15px;
   background-color: none;
   border: none;
   color: rgba(255, 255, 255, .5);
@@ -179,13 +176,29 @@ body {
   }
 }
 
+.check-button {
+  padding: 0px;
+  button {
+    border-radius: 50px;
+    background-color: transparent;
+    border: 1px solid #DA1E5B;
+    .fa {
+      color: rgba(255, 255, 255, .1);
+    }
+  }
+  button:hover {
+    .fa {
+      color: white;
+    }
+  }
+}
+
 .priority {
-  position: absolute;
-  right: 40px;
+  padding: 0 5px;
   font-size: 12px;
-  line-height: 1.7em;
   color: gray;
-  font-family: 'Source Sans Pro'
+  font-family: 'Source Sans Pro';
+  vertical-align: middle;
 }
 
 .custom-dropdown {

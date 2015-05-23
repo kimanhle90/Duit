@@ -13,7 +13,7 @@ duitApp.config(['$stateProvider', '$locationProvider', function($stateProvider, 
 
  $stateProvider.state('home', {
   url: '/',
-  controller: 'home.controller',  //Define as a controller
+  controller: 'home.controller', 
   templateUrl: '/assets/templates/home.html'
 });
  
@@ -31,29 +31,12 @@ duitApp.controller('history.controller',['$scope', function($scope) {
 }]);
 
 
-// // This part triggers firebase data
-// duitApp.controller("FirebaseCtrl", ["$scope", "$firebaseArray",
-//   function($scope, $firebaseArray) {
-//     var ref = new Firebase("https://duit.firebaseio.com/tasks");
-//     $scope.tasks = $firebaseArray(ref);
-
-//   // add new items to the array
-//   // the message is automatically added to Firebase!
-//   $scope.addTask = function() {
-//     $scope.tasks.$add({
-//       info: $scope.newTaskInfo,
-//       priority: $scope.newTaskPriority,
-
-//     });
-//   };
-
-
 duitApp.controller("FirebaseCtrl", function($scope, $firebaseArray) {
   var ref = new Firebase("https://duit.firebaseio.com/tasks");
 
   $scope.tasks = $firebaseArray(ref);
 
-  
+
   $scope.priorityOptions = [
   { name: 'High', value: 'High' }, 
   { name: 'Medium', value: 'Medium' }, 
@@ -62,18 +45,49 @@ duitApp.controller("FirebaseCtrl", function($scope, $firebaseArray) {
 
   $scope.priority = {type: $scope.priorityOptions[0].value};
 
+  
 
   $scope.addTask = function() {
+    var timestamp = new Date();
+    var timestampDate = timestamp.getDate();
+    var timestampMonth = timestamp.getMonth();
     $scope.tasks.$add({
       text: $scope.newTaskText,
       priority: $scope.priority.type,
-      time: Date.now()
+      date: timestampDate,
+      month: timestampMonth,
+      completed: false,
     });
   };
 
+  // Compare task date with current date
+  // $scope.checkDate = function() {
+  //   var today = new Date();
+  //   var todayDate = today.getDate();
+  //   var todayMonth = today.getMonth();
+
+  //   if ($scope.task.date + 7 <= todayDate && $scope.task.month <= todayMonth)
+  //     {return true}
+  //   else {return false}
+  // }
+
+  // Mark task as completed
+  $scope.changeState = function(task) {
+    // task.completed = true;
+    task.completed = true;
+    // $scope.tasks.set({task});
+        console.log(task);
+
+    var taskRef = new Firebase('https://duit.firebaseio.com/tasks/' + task.$id);
+
+    taskRef.update({"completed": true});
+
+  }
+
+
+
+
 });
-
-
 
 // End App Module
 
@@ -82,6 +96,8 @@ duitApp.controller("FirebaseCtrl", function($scope, $firebaseArray) {
 function submitForm() {
  document.forms["myForm"].reset();
 }
+
+
 
 // Add task input field/button
 // Set an attribute on task object to track completion status

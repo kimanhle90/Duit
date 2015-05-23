@@ -144,32 +144,41 @@ body {
 .plus-button:hover {
   background: #E84387; }
 
-/* line 166, /Applications/MAMP/htdocs/stylesheets/main.scss */
-.task {
-  float: left; }
-
-/* line 170, /Applications/MAMP/htdocs/stylesheets/main.scss */
+/* line 168, /Applications/MAMP/htdocs/stylesheets/main.scss */
 .trash-button {
-  position: absolute;
-  right: 15px;
+  padding-left: 15px;
   background-color: none;
   border: none;
   color: rgba(255, 255, 255, 0.5); }
-  /* line 176, /Applications/MAMP/htdocs/stylesheets/main.scss */
+  /* line 173, /Applications/MAMP/htdocs/stylesheets/main.scss */
   .trash-button .fa:hover {
     color: white;
     cursor: pointer; }
 
-/* line 182, /Applications/MAMP/htdocs/stylesheets/main.scss */
-.priority {
-  position: absolute;
-  right: 40px;
-  font-size: 12px;
-  line-height: 1.7em;
-  color: gray;
-  font-family: 'Source Sans Pro'; }
+/* line 179, /Applications/MAMP/htdocs/stylesheets/main.scss */
+.check-button {
+  padding: 0px; }
+  /* line 181, /Applications/MAMP/htdocs/stylesheets/main.scss */
+  .check-button button {
+    border-radius: 50px;
+    background-color: transparent;
+    border: 1px solid #DA1E5B; }
+    /* line 185, /Applications/MAMP/htdocs/stylesheets/main.scss */
+    .check-button button .fa {
+      color: rgba(255, 255, 255, 0.1); }
+  /* line 190, /Applications/MAMP/htdocs/stylesheets/main.scss */
+  .check-button button:hover .fa {
+    color: white; }
 
-/* line 191, /Applications/MAMP/htdocs/stylesheets/main.scss */
+/* line 196, /Applications/MAMP/htdocs/stylesheets/main.scss */
+.priority {
+  padding: 0 5px;
+  font-size: 12px;
+  color: gray;
+  font-family: 'Source Sans Pro';
+  vertical-align: middle; }
+
+/* line 204, /Applications/MAMP/htdocs/stylesheets/main.scss */
 .custom-dropdown {
   margin-left: 10px;
   width: 70px;
@@ -180,7 +189,7 @@ body {
   -webkit-appearance: none;
   color: white; }
 
-/* line 202, /Applications/MAMP/htdocs/stylesheets/main.scss */
+/* line 215, /Applications/MAMP/htdocs/stylesheets/main.scss */
 select:focus {
   outline: none !important; }
 
