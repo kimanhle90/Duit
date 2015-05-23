@@ -6,6 +6,7 @@
         <table>
         	<tr>
         		<td class="task"> {{task.text}}</td>
+                <td class="priority">Priority: <span>{{task.priority}}</span></td>
         		<td class="trash-button" ng-click="tasks.$remove(task)"><i class="fa fa-trash"></i></td>
         	</tr>
         </table>

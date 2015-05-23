@@ -34,11 +34,16 @@
     </table>
 
     <!-- Start dynamic content -->
+    <div ng-controller='FirebaseCtrl'>
+      <div ng-hide="tasks.length" class="welcome">You don't have any task yet. Add new task using the form at the bottom</div>
+    </div>
     <div ui-view></div>
     <div class="add-task" ng-controller='FirebaseCtrl'>
-      <form ng-submit="addTask()">
-        <input class="add-form" ng-model="newTaskText" placeholder="Add new task"/>
-        <div class="plus-button" type="submit">+</div>
+      <form name="myForm" ng-submit="addTask()">
+        <input name="contact-from" class="add-form" ng-model="newTaskText" placeholder="Add new task"/>
+        <select class="custom-dropdown" ng-model="priority.type" ng-options="option.value as option.name for option in priorityOptions">
+        </select>
+        <button class="plus-button" type="submit" onclick="submitForm()">+</button>
       </form>
     </div>
   </div>

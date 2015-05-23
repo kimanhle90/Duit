@@ -53,9 +53,21 @@ duitApp.controller("FirebaseCtrl", function($scope, $firebaseArray) {
 
   $scope.tasks = $firebaseArray(ref);
 
+  
+  $scope.priorityOptions = [
+  { name: 'High', value: 'High' }, 
+  { name: 'Medium', value: 'Medium' }, 
+  { name: 'Low', value: 'Low' }
+  ];
+
+  $scope.priority = {type: $scope.priorityOptions[0].value};
+
+
   $scope.addTask = function() {
     $scope.tasks.$add({
       text: $scope.newTaskText,
+      priority: $scope.priority.type,
+      time: Date.now()
     });
   };
 
@@ -66,6 +78,10 @@ duitApp.controller("FirebaseCtrl", function($scope, $firebaseArray) {
 // End App Module
 
 })();
+
+function submitForm() {
+ document.forms["myForm"].reset();
+}
 
 // Add task input field/button
 // Set an attribute on task object to track completion status
