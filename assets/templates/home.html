@@ -2,10 +2,10 @@
     <!-- push a new task onto the array -->
 
     <!-- Empty list promt -->
-    <div ng-hide="tasks.length && task.completed==false" class="welcome">You don't have any active task yet. Add new task using the form at the bottom</div>
+    <div ng-hide="tasks.length" class="welcome">You don't have any active task yet. Add new task using the form at the bottom</div>
 
     <!-- Task list -->
-    <div ng-repeat="task in tasks" class="active-task" ng-hide="checkDate(task) || task.completed">
+    <div ng-repeat="task in tasks" class="active-task" ng-hide="task.completed; checkDate(task)">
         <table>
         	<tr class="row">
                 <!-- Check button -->

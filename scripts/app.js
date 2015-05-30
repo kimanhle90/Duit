@@ -61,15 +61,15 @@ duitApp.controller("FirebaseCtrl", function($scope, $firebaseArray) {
   };
 
   // Compare task date with current date
-  // $scope.checkDate = function() {
-  //   var today = new Date();
-  //   var todayDate = today.getDate();
-  //   var todayMonth = today.getMonth();
+  $scope.checkDate = function(task) {
+    var today = new Date();
+    var todayDate = today.getDate();
+    var todayMonth = today.getMonth();
 
-  //   if ($scope.task.date + 7 <= todayDate && $scope.task.month <= todayMonth)
-  //     {return true}
-  //   else {return false}
-  // }
+    if (task.date + 7 <= todayDate && task.month <= todayMonth)
+      {return true}
+    else {return false}
+  };
 
   // Mark task as completed
   $scope.changeState = function(task) {
@@ -81,11 +81,19 @@ duitApp.controller("FirebaseCtrl", function($scope, $firebaseArray) {
     var taskRef = new Firebase('https://duit.firebaseio.com/tasks/' + task.$id);
 
     taskRef.update({"completed": true});
-
   }
 
+  // Mark task as incomplete
+  $scope.changeStateAgain = function(task) {
+    // task.completed = true;
+    task.completed = false;
+    // $scope.tasks.set({task});
+        console.log(task);
 
+    var taskRef = new Firebase('https://duit.firebaseio.com/tasks/' + task.$id);
 
+    taskRef.update({"completed": false});
+  }
 
 });
 

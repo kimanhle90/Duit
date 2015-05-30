@@ -193,6 +193,23 @@ body {
   }
 }
 
+.checked-button {
+  padding: 0px;
+  button {
+    border-radius: 50px;
+    background-color: transparent;
+    border: 1px solid #DA1E5B;
+    .fa {
+      color: white;
+    }
+  }
+  button:hover {
+    .fa {
+      color: rgba(255, 255, 255, .1);
+    }
+  }
+}
+
 .priority {
   padding: 0 5px;
   font-size: 12px;

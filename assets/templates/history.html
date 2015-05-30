@@ -1,10 +1,11 @@
 <div ng-controller='FirebaseCtrl'>
-    <div ng-repeat="task in tasks" class="active-task" ng-show="task.completed">
+    <!-- Show completed task -->
+    <div ng-repeat="task in tasks" class="active-task" ng-show="task.completed; checkDate(task)">
         <table>
-           <tr class="row">
+         <tr class="row">
             <!-- Check button -->
-            <td class="check-button col-xs-1">
-                <button ng-click="changeState(task)"><i class="fa fa-check"></i></button>
+            <td class="checked-button col-xs-1">
+                <button ng-click="changeStateAgain(task)"><i class="fa fa-check"></i></button>
             </td>
             <!-- Task text -->
             <td class="task col-xs-9"> {{task.text}}</td>
@@ -12,7 +13,26 @@
             <td class="priority col-xs-1">{{task.priority}}</td>
             <!-- Remove task -->
             <td class="trash-button col-xs-1" ng-click="tasks.$remove(task)"><i class="fa fa-trash"></i></td>
-        </tr>
-    </table>
-</div>
+         </tr>
+        </table>
+    </div>
+
+    <!-- Show old task -->
+
+    <div ng-repeat="task in tasks" class="active-task" ng-show="checkDate(task)">
+        <table>
+         <tr class="row">
+            <!-- Check button -->
+            <td class="checked-button col-xs-1">
+                <button ng-click="changeStateAgain(task)"><i class="fa fa-check"></i></button>
+            </td>
+            <!-- Task text -->
+            <td class="task col-xs-9"> {{task.text}}</td>
+            <!-- Task priority -->
+            <td class="priority col-xs-1">{{task.priority}}</td>
+            <!-- Remove task -->
+            <td class="trash-button col-xs-1" ng-click="tasks.$remove(task)"><i class="fa fa-trash"></i></td>
+         </tr>
+        </table>
+    </div>
 </div>
