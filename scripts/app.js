@@ -34,31 +34,38 @@ duitApp.controller('history.controller',['$scope', function($scope) {
 duitApp.controller("FirebaseCtrl", function($scope, $firebaseArray) {
   var ref = new Firebase("https://duit.firebaseio.com/tasks");
 
-  $scope.tasks = $firebaseArray(ref);
+  // var auth = $firebaseAuth(ref);
+  // // login with Facebook
+  // auth.$authWithOAuthPopup("facebook").then(function(authData) {
+  //   console.log("Logged in as:", authData.uid);
+  // }).catch(function(error) {
+  //   console.log("Authentication failed:", error);
+  // });
+
+$scope.tasks = $firebaseArray(ref);
+
+$scope.priorityOptions = [
+{ name: 'High', value: 'High' }, 
+{ name: 'Medium', value: 'Medium' }, 
+{ name: 'Low', value: 'Low' }
+];
+
+$scope.priority = {type: $scope.priorityOptions[0].value};
 
 
-  $scope.priorityOptions = [
-  { name: 'High', value: 'High' }, 
-  { name: 'Medium', value: 'Medium' }, 
-  { name: 'Low', value: 'Low' }
-  ];
 
-  $scope.priority = {type: $scope.priorityOptions[0].value};
-
-  
-
-  $scope.addTask = function() {
-    var timestamp = new Date();
-    var timestampDate = timestamp.getDate();
-    var timestampMonth = timestamp.getMonth();
-    $scope.tasks.$add({
-      text: $scope.newTaskText,
-      priority: $scope.priority.type,
-      date: timestampDate,
-      month: timestampMonth,
-      completed: false,
-    });
-  };
+$scope.addTask = function() {
+  var timestamp = new Date();
+  var timestampDate = timestamp.getDate();
+  var timestampMonth = timestamp.getMonth();
+  $scope.tasks.$add({
+    text: $scope.newTaskText,
+    priority: $scope.priority.type,
+    date: timestampDate,
+    month: timestampMonth,
+    completed: false,
+  });
+};
 
   // Compare task date with current date
   $scope.checkDate = function(task) {
@@ -76,7 +83,7 @@ duitApp.controller("FirebaseCtrl", function($scope, $firebaseArray) {
     // task.completed = true;
     task.completed = true;
     // $scope.tasks.set({task});
-        console.log(task);
+    console.log(task);
 
     var taskRef = new Firebase('https://duit.firebaseio.com/tasks/' + task.$id);
 
@@ -88,12 +95,21 @@ duitApp.controller("FirebaseCtrl", function($scope, $firebaseArray) {
     // task.completed = true;
     task.completed = false;
     // $scope.tasks.set({task});
-        console.log(task);
+    console.log(task);
 
     var taskRef = new Firebase('https://duit.firebaseio.com/tasks/' + task.$id);
 
     taskRef.update({"completed": false});
+  };
+
+  var ref = new Firebase("https://duit.firebaseio.com");
+ref.authWithOAuthPopup("facebook", function(error, authData) {
+  if (error) {
+    console.log("Login Failed!", error);
+  } else {
+    console.log("Authenticated successfully with payload:", authData);
   }
+});
 
 });
 
@@ -103,8 +119,9 @@ duitApp.controller("FirebaseCtrl", function($scope, $firebaseArray) {
 
 function submitForm() {
  document.forms["myForm"].reset();
-}
+};
 
+// .css("key", "value") || .css({"key": "value", "key2": "value2"})
 
 
 // Add task input field/button
